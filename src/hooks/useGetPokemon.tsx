@@ -12,12 +12,9 @@ const useGetPokemon = (pokemonName?: string, pokemonId?: number) => {
                 throw new Error('Network reponse was not ok')
             }
             const data = await response.json();
-            console.log(data)
             return data;
         }
     });
-
-    console.log(pokemonData);
 
     return {
         pokemonData,

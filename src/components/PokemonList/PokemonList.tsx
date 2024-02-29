@@ -1,16 +1,19 @@
 import React from 'react';
 import useGetPokemonList from '../../hooks/useGetPokemonList';
 import PokemonCard from '../PokemonCard/PokemonCard';
+import Grid from '../shared/Grid/Grid';
 
 const PokemonList: React.FC = () => {
     const {pokemonList, goToNextPage, goToPreviousPage} = useGetPokemonList();
 
 
     return <>
-        {
-        pokemonList?.map((pokemon) => 
-            <PokemonCard key={pokemon.name} pokemon={pokemon}/>)
-        }
+        <Grid goToNextPage={goToNextPage} goToPreviousPage={goToPreviousPage}>
+            {
+            pokemonList?.map((pokemon) => 
+                <PokemonCard key={pokemon.name} pokemon={pokemon}/>)
+            }
+        </Grid>
     </>
 }
 
